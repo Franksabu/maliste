@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: maliste
+    runtime: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn maliste.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: maliste.settings
+      - key: SECRET_KEY
+        generateValue: true
